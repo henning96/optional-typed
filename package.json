@@ -1,0 +1,46 @@
+{
+  "name": "optional-typed",
+  "version": "1.0.0",
+  "description": "Optional type written in Typescript",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/henning96/optional-typed.git",
+  "scripts": {
+    "prepublish": "rm -rf dist && tsc",
+    "test": "NODE_ENV=test mocha --recursive --compilers ts:ts-node/register --bail lib/*.spec.ts",
+    "cover": "NODE_ENV=test nyc npm t",
+    "docs": "rm -rf docs && typedoc --out docs --name Optional --readme README.md index.ts"
+  },
+  "author": "Henning Gerrits",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/expect.js": "^0.3.29",
+    "@types/mocha": "^2.2.33",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.2.0",
+    "nyc": "^10.0.0",
+    "ts-node": "^1.7.2",
+    "typedoc": "^0.5.1",
+    "typescript": "^2.1.4"
+  },
+  "nyc": {
+    "exclude": [
+      "lib/*.spec.ts"
+    ],
+    "include": [
+      "lib/optional.ts",
+      "lib/common.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": false
+  }
+}

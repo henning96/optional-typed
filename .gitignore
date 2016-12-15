@@ -1,0 +1,8 @@
+.idea
+npm-debug.log
+coverage
+.nyc_output
+dist
+node_modules
+docs
+optional-typed.iml

@@ -1,0 +1,6 @@
+.idea
+coverage
+.nyc_output
+/lib/
+index.ts
+tsconfig.json

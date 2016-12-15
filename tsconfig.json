@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "sourceMap": false,
+    "declaration": true,
+    "outDir": "dist",
+    "lib": [
+      "es5",
+      "dom",
+      "es2015.promise"
+    ],
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true
+  },
+  "files": [
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
