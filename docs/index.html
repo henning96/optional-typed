@@ -67,7 +67,7 @@
 				<h1 id="optional">Optional</h1>
 				<p>Optional type written in Typescript with strictNullChecks enabled.
 				Pretty well tested (about 100% coverage).</p>
-				<p>There is a small difference as JavaScript does also have an undefined type.
+				<p>There is a small difference to other implementations as JavaScript does also have an undefined type.
 					This library strictly warns you, if you are trying to use it with an undefined type.
 					In Addition to that, there is an optional method named <em>fromAnything</em> that accepts
 				undefined values as input. They will be treated as if they were null.</p>
@@ -77,31 +77,31 @@
 				<h3 id="from-a-value-that-is-never-null-or-undefined">From a value that is never null or undefined</h3>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Optional} from <span class="hljs-string">"optional-typed"</span>;
 
-<span class="hljs-keyword">const</span> opt = Optional.of(<span class="hljs-string">"content"</span>);
+<span class="hljs-keyword">const</span> opt = Optional.from(<span class="hljs-string">"content"</span>);
 
-<span class="hljs-built_in">console</span>.log(opt.isPresent());               <span class="hljs-comment">//prints 'true'</span>
-opt.ifPresent(value =&gt; <span class="hljs-built_in">console</span>.log(value)); <span class="hljs-comment">//prints 'content'</span>
-Optional.of(<span class="hljs-literal">null</span>);                          <span class="hljs-comment">//throws TypeError</span>
-Optional.of(<span class="hljs-literal">undefined</span>);                     <span class="hljs-comment">//throws TypeError</span>
+<span class="hljs-built_in">console</span>.log(opt.isDefined());               <span class="hljs-comment">//prints 'true'</span>
+opt.ifDefined(value =&gt; <span class="hljs-built_in">console</span>.log(value)); <span class="hljs-comment">//prints 'content'</span>
+Optional.from(<span class="hljs-literal">null</span>);                          <span class="hljs-comment">//throws TypeError</span>
+Optional.from(<span class="hljs-literal">undefined</span>);                     <span class="hljs-comment">//throws TypeError</span>
 </code></pre>
 				<h3 id="from-a-value-that-may-be-null-but-cannot-be-undefined">From a value that may be null, but cannot be undefined</h3>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Optional} from <span class="hljs-string">"optional-typed"</span>;
 
-<span class="hljs-keyword">const</span> opt = Optional.ofNullable&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-literal">null</span>);
+<span class="hljs-keyword">const</span> opt = Optional.fromNullable&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-literal">null</span>);
 
-<span class="hljs-built_in">console</span>.log(opt.isPresent());               <span class="hljs-comment">//prints 'false'</span>
-opt.ifPresent(value =&gt; <span class="hljs-built_in">console</span>.log(value)); <span class="hljs-comment">//prints nothing</span>
+<span class="hljs-built_in">console</span>.log(opt.isDefined());               <span class="hljs-comment">//prints 'false'</span>
+opt.ifDefined(value =&gt; <span class="hljs-built_in">console</span>.log(value)); <span class="hljs-comment">//prints nothing</span>
 <span class="hljs-built_in">console</span>.log(opt.orElse(<span class="hljs-string">"other"</span>));           <span class="hljs-comment">//prints 'other'</span>
 <span class="hljs-built_in">console</span>.log(opt.orElse(<span class="hljs-number">2</span>));                 <span class="hljs-comment">//does not compile</span>
-Optional.ofNullable(<span class="hljs-literal">undefined</span>);             <span class="hljs-comment">//throws TypeError</span>
+Optional.fromNullable(<span class="hljs-literal">undefined</span>);             <span class="hljs-comment">//throws TypeError</span>
 </code></pre>
 				<h3 id="from-a-value-that-may-be-null-or-undefined">From a value that may be null or undefined</h3>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Optional} from <span class="hljs-string">"optional-typed"</span>;
 
-<span class="hljs-keyword">const</span> opt = Optional.ofAnything&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-literal">undefined</span>);
+<span class="hljs-keyword">const</span> opt = Optional.fromAnything&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-literal">undefined</span>);
 
-<span class="hljs-built_in">console</span>.log(opt.isPresent());               <span class="hljs-comment">//prints 'false'</span>
-opt.ifPresent(value =&gt; <span class="hljs-built_in">console</span>.log(value)); <span class="hljs-comment">//prints nothing</span>
+<span class="hljs-built_in">console</span>.log(opt.isDefined());               <span class="hljs-comment">//prints 'false'</span>
+opt.ifDefined(value =&gt; <span class="hljs-built_in">console</span>.log(value)); <span class="hljs-comment">//prints nothing</span>
 <span class="hljs-built_in">console</span>.log(opt.orElseThrow(() =&gt;
     <span class="hljs-keyword">new</span> <span class="hljs-built_in">ReferenceError</span>(<span class="hljs-string">"value is not defined"</span>)
 ));                                         <span class="hljs-comment">//throws ReferenceError</span>

@@ -3,7 +3,7 @@
 Optional type written in Typescript with strictNullChecks enabled.
 Pretty well tested (about 100% coverage).
 
-There is a small difference as JavaScript does also have an undefined type.
+There is a small difference to other implementations as JavaScript does also have an undefined type.
 This library strictly warns you, if you are trying to use it with an undefined type.
 In Addition to that, there is an optional method named *fromAnything* that accepts
 undefined values as input. They will be treated as if they were null.
@@ -18,12 +18,12 @@ Use the provided static methods for creating new instances.
 ```typescript
 import {Optional} from "optional-typed";
 
-const opt = Optional.of("content");
+const opt = Optional.from("content");
 
-console.log(opt.isPresent());               //prints 'true'
-opt.ifPresent(value => console.log(value)); //prints 'content'
-Optional.of(null);                          //throws TypeError
-Optional.of(undefined);                     //throws TypeError
+console.log(opt.isDefined());               //prints 'true'
+opt.ifDefined(value => console.log(value)); //prints 'content'
+Optional.from(null);                          //throws TypeError
+Optional.from(undefined);                     //throws TypeError
 ```
 
 ### From a value that may be null, but cannot be undefined
@@ -31,13 +31,13 @@ Optional.of(undefined);                     //throws TypeError
 ```typescript
 import {Optional} from "optional-typed";
 
-const opt = Optional.ofNullable<string>(null);
+const opt = Optional.fromNullable<string>(null);
 
-console.log(opt.isPresent());               //prints 'false'
-opt.ifPresent(value => console.log(value)); //prints nothing
+console.log(opt.isDefined());               //prints 'false'
+opt.ifDefined(value => console.log(value)); //prints nothing
 console.log(opt.orElse("other"));           //prints 'other'
 console.log(opt.orElse(2));                 //does not compile
-Optional.ofNullable(undefined);             //throws TypeError
+Optional.fromNullable(undefined);             //throws TypeError
 ```
 
 ### From a value that may be null or undefined
@@ -45,10 +45,10 @@ Optional.ofNullable(undefined);             //throws TypeError
 ```typescript
 import {Optional} from "optional-typed";
 
-const opt = Optional.ofAnything<string>(undefined);
+const opt = Optional.fromAnything<string>(undefined);
 
-console.log(opt.isPresent());               //prints 'false'
-opt.ifPresent(value => console.log(value)); //prints nothing
+console.log(opt.isDefined());               //prints 'false'
+opt.ifDefined(value => console.log(value)); //prints nothing
 console.log(opt.orElseThrow(() =>
     new ReferenceError("value is not defined")
 ));                                         //throws ReferenceError
