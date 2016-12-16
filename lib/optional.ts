@@ -1,8 +1,7 @@
 import {Nullable, isDefined} from "./common";
 
 /**
- * Optional type representing values that
- * The API is quite similar to the Optional class in Java 8.
+ * Optional type representing values that may be null.
  * Optionals are constant; they cannot be modified once created.
  * @author Henning Gerrits
  */
