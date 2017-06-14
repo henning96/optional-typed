@@ -3,7 +3,6 @@ import {Nullable, isDefined} from "./common";
 /**
  * Optional type representing values that may be null.
  * Optionals are constant; they cannot be modified once created.
- * @author Henning Gerrits
  */
 export class Optional<T> {
     private value: Nullable<T> = null;
