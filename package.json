@@ -14,14 +14,14 @@
   "author": "Henning Gerrits",
   "license": "MIT",
   "devDependencies": {
-    "@types/expect.js": "^0.3.29",
-    "@types/mocha": "^2.2.33",
-    "expect.js": "^0.3.1",
-    "mocha": "^3.2.0",
-    "nyc": "^10.0.0",
-    "ts-node": "^1.7.2",
-    "typedoc": "^0.5.1",
-    "typescript": "^2.1.4"
+    "@types/expect.js": "0.3.29",
+    "@types/mocha": "2.2.41",
+    "expect.js": "0.3.1",
+    "mocha": "3.4.2",
+    "nyc": "11.0.2",
+    "ts-node": "3.0.6",
+    "typedoc": "0.7.1",
+    "typescript": "2.3.4"
   },
   "nyc": {
     "exclude": [

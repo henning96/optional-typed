@@ -20,10 +20,10 @@ import {Optional} from "optional-typed";
 
 const opt = Optional.from("content");
 
-console.log(opt.isDefined());               //prints 'true'
-opt.ifDefined(value => console.log(value)); //prints 'content'
-Optional.from(null);                          //throws TypeError
-Optional.from(undefined);                     //throws TypeError
+console.log(opt.isDefined());                   //prints 'true'
+opt.ifDefined(value => console.log(value));     //prints 'content'
+Optional.from(null);                            //throws TypeError
+Optional.from(undefined);                       //throws TypeError
 ```
 
 ### From a value that may be null, but cannot be undefined
@@ -33,11 +33,11 @@ import {Optional} from "optional-typed";
 
 const opt = Optional.fromNullable<string>(null);
 
-console.log(opt.isDefined());               //prints 'false'
-opt.ifDefined(value => console.log(value)); //prints nothing
-console.log(opt.orElse("other"));           //prints 'other'
-console.log(opt.orElse(2));                 //does not compile
-Optional.fromNullable(undefined);             //throws TypeError
+console.log(opt.isDefined());                   //prints 'false'
+opt.ifDefined(value => console.log(value));     //prints nothing
+console.log(opt.orElse("other"));               //prints 'other'
+console.log(opt.orElse(2));                     //does not compile
+Optional.fromNullable(undefined);               //throws TypeError
 ```
 
 ### From a value that may be null or undefined
@@ -47,11 +47,11 @@ import {Optional} from "optional-typed";
 
 const opt = Optional.fromAnything<string>(undefined);
 
-console.log(opt.isDefined());               //prints 'false'
-opt.ifDefined(value => console.log(value)); //prints nothing
+console.log(opt.isDefined());                   //prints 'false'
+opt.ifDefined(value => console.log(value));     //prints nothing
 console.log(opt.orElseThrow(() =>
     new ReferenceError("value is not defined")
-));                                         //throws ReferenceError
+));                                             //throws ReferenceError
 ```
 
 
